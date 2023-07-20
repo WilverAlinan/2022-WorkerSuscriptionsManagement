@@ -1,0 +1,288 @@
+2022-02-19 14:29:06,976 DEBUG org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] Application failed to start due to an exception
+org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'logging.level.org.springframework.boot.autoconfigure' to org.springframework.boot.logging.LogLevel
+	at org.springframework.boot.context.properties.bind.Binder.handleBindError(Binder.java:384)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:344)
+	at org.springframework.boot.context.properties.bind.Binder.lambda$null$1(Binder.java:432)
+	at org.springframework.boot.context.properties.bind.Binder$Context.withSource(Binder.java:558)
+	at org.springframework.boot.context.properties.bind.Binder$Context.access$700(Binder.java:534)
+	at org.springframework.boot.context.properties.bind.Binder.lambda$bindAggregate$2(Binder.java:433)
+	at org.springframework.boot.context.properties.bind.AggregateElementBinder.bind(AggregateElementBinder.java:39)
+	at org.springframework.boot.context.properties.bind.MapBinder$EntryBinder.lambda$bindEntries$0(MapBinder.java:157)
+	at java.util.HashMap.computeIfAbsent(HashMap.java:1128)
+	at org.springframework.boot.context.properties.bind.MapBinder$EntryBinder.bindEntries(MapBinder.java:157)
+	at org.springframework.boot.context.properties.bind.MapBinder.bindAggregate(MapBinder.java:68)
+	at org.springframework.boot.context.properties.bind.AggregateBinder.bind(AggregateBinder.java:56)
+	at org.springframework.boot.context.properties.bind.Binder.lambda$bindAggregate$3(Binder.java:435)
+	at org.springframework.boot.context.properties.bind.Binder$Context.withIncreasedDepth(Binder.java:587)
+	at org.springframework.boot.context.properties.bind.Binder$Context.access$100(Binder.java:534)
+	at org.springframework.boot.context.properties.bind.Binder.bindAggregate(Binder.java:435)
+	at org.springframework.boot.context.properties.bind.Binder.bindObject(Binder.java:396)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:340)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:329)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:259)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:233)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.setLogLevels(LoggingApplicationListener.java:374)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeFinalLoggingLevels(LoggingApplicationListener.java:341)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:283)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:240)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:216)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:131)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:85)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:66)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:120)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:114)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:65)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.kalum.workersuscriptionsmanagement.WorkerSuscriptionsManagementApplication.main(WorkerSuscriptionsManagementApplication.java:21)
+Caused by: org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [org.springframework.boot.logging.LogLevel] for value 'I = INFO'; nested exception is java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.I = INFO
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47)
+	at org.springframework.core.convert.support.GenericConversionService.convert(GenericConversionService.java:192)
+	at org.springframework.boot.context.properties.bind.BindConverter.convert(BindConverter.java:109)
+	at org.springframework.boot.context.properties.bind.BindConverter.convert(BindConverter.java:100)
+	at org.springframework.boot.context.properties.bind.BindConverter.convert(BindConverter.java:92)
+	at org.springframework.boot.context.properties.bind.Binder.bindProperty(Binder.java:456)
+	at org.springframework.boot.context.properties.bind.Binder.bindObject(Binder.java:400)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:340)
+	... 39 common frames omitted
+Caused by: java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.I = INFO
+	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.findEnum(LenientObjectToEnumConverterFactory.java:93)
+	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.convert(LenientObjectToEnumConverterFactory.java:80)
+	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.convert(LenientObjectToEnumConverterFactory.java:61)
+	at org.springframework.core.convert.support.GenericConversionService$ConverterFactoryAdapter.convert(GenericConversionService.java:437)
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:41)
+	... 46 common frames omitted
+2022-02-19 14:29:06,993 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'logging.level.org.springframework.boot.autoconfigure' to org.springframework.boot.logging.LogLevel:
+
+    Property: logging.level.org.springframework.boot.autoconfigure
+    Value: I = INFO
+    Origin: class path resource [application.properties] - 4:54
+    Reason: failed to convert java.lang.String to org.springframework.boot.logging.LogLevel (caused by java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.I = INFO)
+
+Action:
+
+Update your application's configuration. The following values are valid:
+
+    DEBUG
+    ERROR
+    FATAL
+    INFO
+    OFF
+    TRACE
+    WARN
+
+2022-02-19 14:31:28,728 DEBUG org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] Application failed to start due to an exception
+org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'logging.level.org.springframework.boot.autoconfigure' to org.springframework.boot.logging.LogLevel
+	at org.springframework.boot.context.properties.bind.Binder.handleBindError(Binder.java:384)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:344)
+	at org.springframework.boot.context.properties.bind.Binder.lambda$null$1(Binder.java:432)
+	at org.springframework.boot.context.properties.bind.Binder$Context.withSource(Binder.java:558)
+	at org.springframework.boot.context.properties.bind.Binder$Context.access$700(Binder.java:534)
+	at org.springframework.boot.context.properties.bind.Binder.lambda$bindAggregate$2(Binder.java:433)
+	at org.springframework.boot.context.properties.bind.AggregateElementBinder.bind(AggregateElementBinder.java:39)
+	at org.springframework.boot.context.properties.bind.MapBinder$EntryBinder.lambda$bindEntries$0(MapBinder.java:157)
+	at java.util.HashMap.computeIfAbsent(HashMap.java:1128)
+	at org.springframework.boot.context.properties.bind.MapBinder$EntryBinder.bindEntries(MapBinder.java:157)
+	at org.springframework.boot.context.properties.bind.MapBinder.bindAggregate(MapBinder.java:68)
+	at org.springframework.boot.context.properties.bind.AggregateBinder.bind(AggregateBinder.java:56)
+	at org.springframework.boot.context.properties.bind.Binder.lambda$bindAggregate$3(Binder.java:435)
+	at org.springframework.boot.context.properties.bind.Binder$Context.withIncreasedDepth(Binder.java:587)
+	at org.springframework.boot.context.properties.bind.Binder$Context.access$100(Binder.java:534)
+	at org.springframework.boot.context.properties.bind.Binder.bindAggregate(Binder.java:435)
+	at org.springframework.boot.context.properties.bind.Binder.bindObject(Binder.java:396)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:340)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:329)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:259)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:233)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.setLogLevels(LoggingApplicationListener.java:374)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeFinalLoggingLevels(LoggingApplicationListener.java:341)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:283)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:240)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:216)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:131)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:85)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:66)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:120)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:114)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:65)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.kalum.workersuscriptionsmanagement.WorkerSuscriptionsManagementApplication.main(WorkerSuscriptionsManagementApplication.java:21)
+Caused by: org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [org.springframework.boot.logging.LogLevel] for value 'I = INFO'; nested exception is java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.I = INFO
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47)
+	at org.springframework.core.convert.support.GenericConversionService.convert(GenericConversionService.java:192)
+	at org.springframework.boot.context.properties.bind.BindConverter.convert(BindConverter.java:109)
+	at org.springframework.boot.context.properties.bind.BindConverter.convert(BindConverter.java:100)
+	at org.springframework.boot.context.properties.bind.BindConverter.convert(BindConverter.java:92)
+	at org.springframework.boot.context.properties.bind.Binder.bindProperty(Binder.java:456)
+	at org.springframework.boot.context.properties.bind.Binder.bindObject(Binder.java:400)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:340)
+	... 39 common frames omitted
+Caused by: java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.I = INFO
+	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.findEnum(LenientObjectToEnumConverterFactory.java:93)
+	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.convert(LenientObjectToEnumConverterFactory.java:80)
+	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.convert(LenientObjectToEnumConverterFactory.java:61)
+	at org.springframework.core.convert.support.GenericConversionService$ConverterFactoryAdapter.convert(GenericConversionService.java:437)
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:41)
+	... 46 common frames omitted
+2022-02-19 14:31:28,735 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'logging.level.org.springframework.boot.autoconfigure' to org.springframework.boot.logging.LogLevel:
+
+    Property: logging.level.org.springframework.boot.autoconfigure
+    Value: I = INFO
+    Origin: class path resource [application.properties] - 4:54
+    Reason: failed to convert java.lang.String to org.springframework.boot.logging.LogLevel (caused by java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.I = INFO)
+
+Action:
+
+Update your application's configuration. The following values are valid:
+
+    DEBUG
+    ERROR
+    FATAL
+    INFO
+    OFF
+    TRACE
+    WARN
+
+2022-02-19 14:32:52,196 DEBUG org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] Application failed to start due to an exception
+org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'logging.level.org.springframework.boot.autoconfigure' to org.springframework.boot.logging.LogLevel
+	at org.springframework.boot.context.properties.bind.Binder.handleBindError(Binder.java:384)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:344)
+	at org.springframework.boot.context.properties.bind.Binder.lambda$null$1(Binder.java:432)
+	at org.springframework.boot.context.properties.bind.Binder$Context.withSource(Binder.java:558)
+	at org.springframework.boot.context.properties.bind.Binder$Context.access$700(Binder.java:534)
+	at org.springframework.boot.context.properties.bind.Binder.lambda$bindAggregate$2(Binder.java:433)
+	at org.springframework.boot.context.properties.bind.AggregateElementBinder.bind(AggregateElementBinder.java:39)
+	at org.springframework.boot.context.properties.bind.MapBinder$EntryBinder.lambda$bindEntries$0(MapBinder.java:157)
+	at java.util.HashMap.computeIfAbsent(HashMap.java:1128)
+	at org.springframework.boot.context.properties.bind.MapBinder$EntryBinder.bindEntries(MapBinder.java:157)
+	at org.springframework.boot.context.properties.bind.MapBinder.bindAggregate(MapBinder.java:68)
+	at org.springframework.boot.context.properties.bind.AggregateBinder.bind(AggregateBinder.java:56)
+	at org.springframework.boot.context.properties.bind.Binder.lambda$bindAggregate$3(Binder.java:435)
+	at org.springframework.boot.context.properties.bind.Binder$Context.withIncreasedDepth(Binder.java:587)
+	at org.springframework.boot.context.properties.bind.Binder$Context.access$100(Binder.java:534)
+	at org.springframework.boot.context.properties.bind.Binder.bindAggregate(Binder.java:435)
+	at org.springframework.boot.context.properties.bind.Binder.bindObject(Binder.java:396)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:340)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:329)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:259)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:233)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.setLogLevels(LoggingApplicationListener.java:374)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeFinalLoggingLevels(LoggingApplicationListener.java:341)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:283)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:240)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:216)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:131)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:85)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:66)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:120)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:114)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:65)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.kalum.workersuscriptionsmanagement.WorkerSuscriptionsManagementApplication.main(WorkerSuscriptionsManagementApplication.java:21)
+Caused by: org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [org.springframework.boot.logging.LogLevel] for value 'I = INFO'; nested exception is java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.I = INFO
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47)
+	at org.springframework.core.convert.support.GenericConversionService.convert(GenericConversionService.java:192)
+	at org.springframework.boot.context.properties.bind.BindConverter.convert(BindConverter.java:109)
+	at org.springframework.boot.context.properties.bind.BindConverter.convert(BindConverter.java:100)
+	at org.springframework.boot.context.properties.bind.BindConverter.convert(BindConverter.java:92)
+	at org.springframework.boot.context.properties.bind.Binder.bindProperty(Binder.java:456)
+	at org.springframework.boot.context.properties.bind.Binder.bindObject(Binder.java:400)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:340)
+	... 39 common frames omitted
+Caused by: java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.I = INFO
+	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.findEnum(LenientObjectToEnumConverterFactory.java:93)
+	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.convert(LenientObjectToEnumConverterFactory.java:80)
+	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.convert(LenientObjectToEnumConverterFactory.java:61)
+	at org.springframework.core.convert.support.GenericConversionService$ConverterFactoryAdapter.convert(GenericConversionService.java:437)
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:41)
+	... 46 common frames omitted
+2022-02-19 14:32:52,208 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'logging.level.org.springframework.boot.autoconfigure' to org.springframework.boot.logging.LogLevel:
+
+    Property: logging.level.org.springframework.boot.autoconfigure
+    Value: I = INFO
+    Origin: class path resource [application.properties] - 2:54
+    Reason: failed to convert java.lang.String to org.springframework.boot.logging.LogLevel (caused by java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.I = INFO)
+
+Action:
+
+Update your application's configuration. The following values are valid:
+
+    DEBUG
+    ERROR
+    FATAL
+    INFO
+    OFF
+    TRACE
+    WARN
+
+2022-02-19 14:33:35,330 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'logging.level.org.springframework.boot.autoconfigure' to org.springframework.boot.logging.LogLevel:
+
+    Property: logging.level.org.springframework.boot.autoconfigure
+    Value: I = INFO
+    Origin: class path resource [application.properties] - 1:54
+    Reason: failed to convert java.lang.String to org.springframework.boot.logging.LogLevel (caused by java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.I = INFO)
+
+Action:
+
+Update your application's configuration. The following values are valid:
+
+    DEBUG
+    ERROR
+    FATAL
+    INFO
+    OFF
+    TRACE
+    WARN
+
